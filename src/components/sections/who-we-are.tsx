@@ -13,7 +13,7 @@ export function WhoWeAre() {
   return (
     <section id="about" className="bg-white py-16 sm:py-24">
       <Container>
-        <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
+        <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-16">
           <div>
             <Badge>Who We Are</Badge>
             <h2 className="mt-5 text-3xl font-extrabold leading-tight text-ink sm:text-4xl md:text-[42px]">
@@ -35,14 +35,6 @@ export function WhoWeAre() {
                 </li>
               ))}
             </ul>
-
-            <a
-              href="#services"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-navy px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-navy-dark"
-            >
-              Learn About Our Methodology
-              <ArrowRight className="h-4 w-4" />
-            </a>
           </div>
 
           <div className="relative">
@@ -62,6 +54,14 @@ export function WhoWeAre() {
               </p>
             </div>
           </div>
+
+          <a
+            href="#services"
+            className="inline-flex items-center gap-2 self-start rounded-full bg-navy px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-navy-dark"
+          >
+            Learn About Our Methodology
+            <ArrowRight className="h-4 w-4" />
+          </a>
         </div>
       </Container>
     </section>
