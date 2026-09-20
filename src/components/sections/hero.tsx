@@ -28,10 +28,10 @@ export function Hero() {
           <p className="text-sm font-bold tracking-[0.2em] text-white/80 uppercase">
             Digital Product Studio
           </p>
-          <h1 className="mt-5 text-4xl font-extrabold leading-[1.15] text-white sm:text-5xl md:text-[54px] md:leading-[1.12]">
+          <h1 className="mt-5 text-[23px] font-extrabold leading-tight text-white sm:text-5xl md:text-[54px] md:leading-[1.12]">
             Transforming Complex Ideas
-            <br className="hidden md:block" /> Into High-Performance
-            <br className="hidden md:block" /> Digital Products
+            <br /> Into High-Performance
+            <br /> Digital Products
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg">
             Tech Bridgers partners with ambitious brands and venture-backed
@@ -39,16 +39,16 @@ export function Hero() {
             robust mobile applications that scale.
           </p>
 
-          <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="mt-9 flex flex-row items-center justify-center gap-3 sm:gap-4">
             <a
               href="#contact"
-              className="inline-flex w-full items-center justify-center rounded-full bg-navy px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-navy-dark sm:w-auto"
+              className="inline-flex items-center justify-center rounded-full bg-navy px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-navy-dark sm:px-6 sm:py-3.5"
             >
               Start a project
             </a>
             <a
               href="#work"
-              className="inline-flex w-full items-center justify-center rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-white/90 sm:w-auto"
+              className="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-ink transition-colors hover:bg-white/90 sm:px-6 sm:py-3.5"
             >
               View our work
             </a>
