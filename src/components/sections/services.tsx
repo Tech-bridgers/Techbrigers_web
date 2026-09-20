@@ -6,36 +6,48 @@ const SERVICES = [
   {
     icon: Code2,
     title: "Web Development",
-    description:
-      "Fast, responsive websites and platforms designed around your business goals.",
+    description: (
+      <>Fast, responsive websites and platforms designed around your business goals.</>
+    ),
     tags: ["Corporate websites", "E-commerce", "Web applications"],
   },
   {
     icon: Smartphone,
     title: "Mobile App Development",
-    description:
-      "Useful mobile experiences engineered for reliability across iOS and Android.",
+    description: (
+      <>Useful mobile experiences engineered for reliability across iOS and Android.</>
+    ),
     tags: ["Product strategy", "Cross-platform builds", "Launch support"],
   },
   {
     icon: Rocket,
     title: "MVP Development",
-    description:
-      "A focused path from idea to a testable product, without unnecessary complexity.",
+    description: (
+      <>
+        A focused path from idea to a testable product
+        <span className="sm:hidden">.</span>
+        <span className="hidden sm:inline">, without unnecessary complexity.</span>
+      </>
+    ),
     tags: ["Scope definition", "Rapid prototyping", "Iterative delivery"],
   },
   {
     icon: PenTool,
     title: "UI/UX Design",
-    description:
-      "Clear interfaces grounded in user needs, business context, and strong systems.",
+    description: (
+      <>
+        Clear interfaces grounded in user needs
+        <span className="sm:hidden"> and business context.</span>
+        <span className="hidden sm:inline">, business context, and strong systems.</span>
+      </>
+    ),
     tags: ["Research", "User flows", "Prototypes", "Design systems"],
   },
 ];
 
 export function Services() {
   return (
-    <section id="services" className="bg-white py-16 sm:py-24">
+    <section id="services" className="bg-mist py-16 sm:bg-white sm:py-24">
       <Container>
         <div className="mx-auto max-w-3xl text-center">
           <Badge>What We Do</Badge>
@@ -44,23 +56,23 @@ export function Services() {
           </h2>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
+        <div className="mt-14 grid gap-10 sm:gap-6 md:grid-cols-2">
           {SERVICES.map(({ icon: Icon, title, description, tags }) => (
             <div
               key={title}
-              className="rounded-3xl bg-mist p-8 sm:p-10"
+              className="sm:rounded-3xl sm:bg-mist sm:p-8 lg:p-10"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy">
                 <Icon className="h-6 w-6 text-white" />
               </div>
               <h3 className="mt-6 text-xl font-bold text-ink">{title}</h3>
               <p className="mt-3 text-muted">{description}</p>
-              <p className="mt-4 text-sm font-semibold text-navy">
+              <p className="mt-4 hidden text-sm font-semibold text-navy sm:block">
                 {tags.join(" • ")}
               </p>
               <a
                 href="#contact"
-                className="mt-6 inline-flex items-center justify-center rounded-full border border-line px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-ink hover:text-white"
+                className="mt-6 hidden items-center justify-center rounded-full border border-line px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-ink hover:text-white sm:inline-flex"
               >
                 Discuss this service
               </a>
