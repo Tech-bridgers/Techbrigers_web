@@ -16,25 +16,28 @@ export function CTA() {
       </div>
 
       <Container className="relative text-center">
-        <h2 className="mx-auto max-w-3xl text-3xl font-extrabold leading-tight text-white sm:text-4xl md:text-[44px]">
-          Ready to Bring Your Next Digital Venture to Market?
+        <h2 className="mx-auto max-w-3xl text-[20px] font-extrabold leading-tight text-white sm:text-4xl md:text-[44px]">
+          Ready to Bring Your Next Digital
+          <br /> Venture to Market?
         </h2>
         <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
           Let&apos;s audit your requirements together. Our engineers are
-          ready to scope, architecturalize, and build your digital solution.
+          ready to scope
+          <span className="hidden sm:inline">, architecturalize,</span> and
+          build your digital solution.
         </p>
 
-        <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <div className="mt-9 flex flex-row items-center justify-center gap-2 sm:gap-4">
           <a
             href="mailto:hello@techbridgers.com"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-white/90 sm:w-auto"
+            className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full bg-white px-3 py-2.5 text-[11px] font-semibold text-ink transition-colors hover:bg-white/90 sm:gap-2 sm:px-6 sm:py-3.5 sm:text-sm"
           >
             Initiate Project Discovery
-            <ArrowRight className="h-4 w-4" />
+            <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
           </a>
           <a
             href="mailto:hello@techbridgers.com"
-            className="inline-flex w-full items-center justify-center rounded-full bg-navy px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-navy-dark sm:w-auto"
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-navy px-3 py-2.5 text-[11px] font-semibold text-white transition-colors hover:bg-navy-dark sm:px-6 sm:py-3.5 sm:text-sm"
           >
             Schedule Briefing
           </a>
