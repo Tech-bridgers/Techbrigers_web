@@ -16,13 +16,19 @@ export function Testimonial() {
 
           <p className="mt-8 text-xl font-medium leading-relaxed text-ink sm:text-2xl">
             &quot;Tech Bridgers transformed our manual business processes
-            into a cohesive SaaS product that saved us hundreds of staff
-            hours. Their engineering standards are second to none, and they
-            communicated proactively at every phase.&quot;
+            into a cohesive SaaS product
+            <span className="sm:hidden">.</span>
+            <span className="hidden sm:inline">
+              {" "}
+              that saved us hundreds of staff hours. Their engineering
+              standards are second to none, and they communicated
+              proactively at every phase.
+            </span>
+            &quot;
           </p>
 
           <div className="mt-8 flex items-center justify-center gap-3">
-            <div className="relative h-12 w-12 overflow-hidden rounded-full">
+            <div className="relative hidden h-12 w-12 overflow-hidden rounded-full sm:block">
               <Image
                 src="/images/testimonial-avatar.jpg"
                 alt="Marcus Chen"
@@ -31,7 +37,7 @@ export function Testimonial() {
                 sizes="48px"
               />
             </div>
-            <div className="text-left">
+            <div className="text-center sm:text-left">
               <p className="font-bold text-ink">Marcus Chen</p>
               <p className="text-sm text-muted">
                 VP of Operations, Northstar Global
