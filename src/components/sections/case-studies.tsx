@@ -47,7 +47,7 @@ export function CaseStudies() {
           </div>
           <a
             href="#contact"
-            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-navy px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-navy-dark"
+            className="hidden shrink-0 items-center gap-2 rounded-full bg-navy px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-navy-dark sm:inline-flex"
           >
             View All Case Studies
             <ArrowRight className="h-4 w-4" />
