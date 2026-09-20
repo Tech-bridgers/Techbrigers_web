@@ -25,7 +25,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <p className="font-bold">Connect</p>
+            <p className="font-normal sm:font-bold">Connect</p>
             <ul className="mt-4 space-y-3">
               {CONNECT.map((item) => (
                 <li key={item.label}>
@@ -41,8 +41,14 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <p className="font-bold">Offices</p>
-            <ul className="mt-4 space-y-3">
+            <p className="font-normal sm:font-bold">Offices</p>
+            <p className="mt-4 text-sm text-white/70 sm:hidden">
+              {OFFICES[0]} · {OFFICES[1]}
+            </p>
+            <p className="mt-3 text-sm text-white/70 sm:hidden">
+              {OFFICES[2]}
+            </p>
+            <ul className="mt-4 hidden space-y-3 sm:block">
               {OFFICES.map((item) => (
                 <li key={item} className="text-sm text-white/70">
                   {item}
@@ -52,14 +58,20 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-white/15 pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-white/60">
+        <div className="mt-14 border-t border-white/15 pt-8">
+          <p className="text-sm text-white/60 sm:hidden">
             © {new Date().getFullYear()} Tech Bridgers. Engineered for
-            impact.
+            impact. · Privacy Policy · Terms of Service
           </p>
-          <p className="text-sm text-white/60">
-            Privacy Policy • Terms of Service
-          </p>
+          <div className="hidden sm:flex sm:items-center sm:justify-between">
+            <p className="text-sm text-white/60">
+              © {new Date().getFullYear()} Tech Bridgers. Engineered for
+              impact.
+            </p>
+            <p className="text-sm text-white/60">
+              Privacy Policy • Terms of Service
+            </p>
+          </div>
         </div>
       </Container>
     </footer>
