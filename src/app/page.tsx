@@ -1,5 +1,3 @@
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
 import { Hero } from "@/components/sections/hero";
 import { WhoWeAre } from "@/components/sections/who-we-are";
 import { Services } from "@/components/sections/services";
@@ -11,7 +9,6 @@ import { CTA } from "@/components/sections/cta";
 export default function Home() {
   return (
     <>
-      <SiteHeader />
       <main className="flex-1">
         <Hero />
         <WhoWeAre />
@@ -21,7 +18,6 @@ export default function Home() {
         <Process />
         <CTA />
       </main>
-      <SiteFooter />
     </>
   );
 }
