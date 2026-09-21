@@ -2,6 +2,8 @@ import Image from "next/image";
 import { ArrowRight, Check } from "lucide-react";
 import { Container } from "../container";
 import { Badge } from "../badge";
+import { Reveal } from "../motion/reveal";
+import { MotionButton } from "../motion/motion-button";
 
 const POINTS = [
   "Co-creative strategic partnerships",
@@ -14,7 +16,7 @@ export function WhoWeAre() {
     <section id="about" className="bg-white py-16 sm:py-24">
       <Container>
         <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-16">
-          <div>
+          <Reveal>
             <Badge>Who We Are</Badge>
             <h2 className="mt-5 text-3xl font-extrabold leading-tight text-ink sm:text-4xl md:text-[42px]">
               Bridging the Gap Between Ambition and Cutting-Edge Engineering
@@ -35,33 +37,37 @@ export function WhoWeAre() {
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
 
-          <div className="relative">
-            <div className="relative aspect-652/438 overflow-hidden rounded-3xl">
-              <Image
-                src="/images/about-team.jpg"
-                alt="Tech Bridgers team reviewing a product analytics dashboard together"
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 560px, 90vw"
-              />
+          <Reveal delay={0.15}>
+            <div className="relative">
+              <div className="relative aspect-652/438 overflow-hidden rounded-3xl">
+                <Image
+                  src="/images/about-team.jpg"
+                  alt="Tech Bridgers team reviewing a product analytics dashboard together"
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 560px, 90vw"
+                />
+              </div>
+              <div className="absolute bottom-0 left-0 rounded-2xl bg-navy px-6 py-5 text-white shadow-lg shadow-black/20">
+                <p className="text-2xl font-extrabold sm:text-3xl">100%</p>
+                <p className="mt-1 text-sm text-white/80">
+                  On-time product delivery
+                </p>
+              </div>
             </div>
-            <div className="absolute bottom-0 left-0 rounded-2xl bg-navy px-6 py-5 text-white shadow-lg shadow-black/20">
-              <p className="text-2xl font-extrabold sm:text-3xl">100%</p>
-              <p className="mt-1 text-sm text-white/80">
-                On-time product delivery
-              </p>
-            </div>
-          </div>
+          </Reveal>
 
-          <a
-            href="#services"
-            className="inline-flex items-center gap-2 self-start rounded-full bg-navy px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-navy-dark"
-          >
-            Learn About Our Methodology
-            <ArrowRight className="h-4 w-4" />
-          </a>
+          <Reveal delay={0.1} className="justify-self-start self-start">
+            <MotionButton
+              href="#services"
+              className="inline-flex items-center gap-2 rounded-full bg-navy px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-navy-dark"
+            >
+              Learn About Our Methodology
+              <ArrowRight className="h-4 w-4" />
+            </MotionButton>
+          </Reveal>
         </div>
       </Container>
     </section>

@@ -2,12 +2,13 @@ import Image from "next/image";
 import { Quote } from "lucide-react";
 import { Container } from "../container";
 import { Badge } from "../badge";
+import { Reveal } from "../motion/reveal";
 
 export function Testimonial() {
   return (
     <section className="bg-mist py-16 sm:py-24">
       <Container>
-        <div className="mx-auto max-w-3xl text-center">
+        <Reveal className="mx-auto max-w-3xl text-center">
           <Badge>Client Praise</Badge>
 
           <div className="mx-auto mt-8 flex h-12 w-12 items-center justify-center rounded-full border-2 border-navy">
@@ -44,7 +45,7 @@ export function Testimonial() {
               </p>
             </div>
           </div>
-        </div>
+        </Reveal>
       </Container>
     </section>
   );
