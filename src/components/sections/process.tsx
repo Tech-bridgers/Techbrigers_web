@@ -1,5 +1,6 @@
 import { Container } from "../container";
 import { Badge } from "../badge";
+import { Reveal } from "../motion/reveal";
 
 const STEPS = [
   {
@@ -32,7 +33,7 @@ export function Process() {
   return (
     <section className="bg-white py-16 sm:py-24">
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <Badge>Our Blueprint</Badge>
           <h2 className="mt-5 text-3xl font-extrabold leading-tight text-ink sm:text-4xl md:text-[42px]">
             A Disciplined Path to Launch
@@ -41,11 +42,15 @@ export function Process() {
             Our modular methodology mitigates shipping risks, aligning
             software architecture tightly with product roadmap objectives.
           </p>
-        </div>
+        </Reveal>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {STEPS.map((step) => (
-            <div key={step.number} className="rounded-3xl bg-mist p-7">
+          {STEPS.map((step, index) => (
+            <Reveal
+              key={step.number}
+              delay={(index % 4) * 0.08}
+              className="rounded-3xl bg-mist p-7"
+            >
               <p className="text-4xl font-extrabold text-navy">
                 {step.number}
               </p>
@@ -55,7 +60,7 @@ export function Process() {
               <p className="mt-2.5 text-sm leading-relaxed text-muted">
                 {step.description}
               </p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </Container>
