@@ -16,7 +16,7 @@ export default function Home() {
         <CaseStudies />
         <Testimonial />
         <Process />
-        <CTA />
+        <CTA /> 
       </main>
     </>
   );
