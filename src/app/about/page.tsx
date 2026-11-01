@@ -11,7 +11,7 @@ const teamMembers = [
     {
       name: "Adelaja Emmanuel",
       role: "Product strategy lead",
-      image: "/images/adelaja-emmanuel.jpg", // Ensure path matches your project structure
+      image: "/images/vic.jpg", // Ensure path matches your project structure
     },
     {
       name: "Sikiru Selim",

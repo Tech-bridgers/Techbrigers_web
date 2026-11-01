@@ -1,16 +1,8 @@
-import { PageHero } from "@/components/page-hero";
-import {
-  Mail,
-  MapPin,
-  Clock3,
-  Share2,
-} from "lucide-react";
-import type { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Contact | Tech Bridgers",
-  description: "Let's Build Something Useful.",
-};
+import React, { useState } from "react";
+import { PageHero } from "@/components/page-hero";
+import { Mail, MapPin, Clock3, Share2, Loader2, CheckCircle, AlertCircle } from "lucide-react";
 
 const contactDetails = [
   {
@@ -36,9 +28,56 @@ const contactDetails = [
 ];
 
 export default function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<{ type: "success" | "error" | null; message: string }>({
+    type: null,
+    message: "",
+  });
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setStatus({ type: null, message: "" });
+
+    const formData = new FormData(e.currentTarget);
+    
+    
+    formData.append("access_key", "2c7039c1-2c7d-4e2b-93a5-72af27e13e12");
+    formData.append("subject", "New Contact Form Submission - Tech Bridgers");
+    formData.append("from_name", "Tech Bridgers Contact Form");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus({
+          type: "success",
+          message: "Thank you! Your enquiry has been sent successfully to TechBrigers",
+        });
+        (e.target as HTMLFormElement).reset();
+      } else {
+        setStatus({
+          type: "error",
+          message: data.message || "Something went wrong. Please try again.",
+        });
+      }
+    } catch (error) {
+      setStatus({
+        type: "error",
+        message: "Failed to submit form. Please check your connection and try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <main className="min-h-screen bg-white text-slate-950">
-
       <PageHero
         eyebrow="The people behind the products"
         heading={
@@ -53,14 +92,13 @@ export default function Contact() {
       <section className="bg-white">
         <div className="mx-auto max-w-6xl px-5 py-10 sm:px-8 md:py-14 lg:px-10">
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1.35fr_0.95fr]">
-
+            
             <div className="rounded-xl border border-[#e5e5e5] bg-white p-5 shadow-sm sm:p-6">
               <h2 className="text-[16px] font-bold tracking-[-0.02em] text-[#080808] sm:text-[17px]">
                 Start a conversation
               </h2>
 
-              <form className="mt-5 space-y-3.5">
-
+              <form onSubmit={handleSubmit} className="mt-5 space-y-3.5">
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                   <div>
                     <label
@@ -69,11 +107,11 @@ export default function Contact() {
                     >
                       Name
                     </label>
-
                     <input
                       id="name"
                       name="name"
                       type="text"
+                      required
                       placeholder="Your full name"
                       className="h-7 w-full rounded-[6px] border border-[#e5e5e5] bg-[#fafafa] px-2.5 text-[9px] text-[#111] outline-none transition focus:border-[#293994] focus:ring-1 focus:ring-[#293994]/10 placeholder:text-[#9ca3af]"
                     />
@@ -86,17 +124,16 @@ export default function Contact() {
                     >
                       Email
                     </label>
-
                     <input
                       id="email"
                       name="email"
                       type="email"
+                      required
                       placeholder="you@company.com"
                       className="h-7 w-full rounded-[6px] border border-[#e5e5e5] bg-[#fafafa] px-2.5 text-[9px] text-[#111] outline-none transition focus:border-[#293994] focus:ring-1 focus:ring-[#293994]/10 placeholder:text-[#9ca3af]"
                     />
                   </div>
                 </div>
-
 
                 <div>
                   <label
@@ -105,7 +142,6 @@ export default function Contact() {
                   >
                     Company
                   </label>
-
                   <input
                     id="company"
                     name="company"
@@ -115,7 +151,6 @@ export default function Contact() {
                   />
                 </div>
 
-
                 <div>
                   <label
                     htmlFor="service"
@@ -123,11 +158,11 @@ export default function Contact() {
                   >
                     Service
                   </label>
-
                   <select
                     id="service"
                     name="service"
                     defaultValue=""
+                    required
                     className="h-7 w-full rounded-[6px] border border-[#e5e5e5] bg-[#fafafa] px-2.5 text-[9px] text-[#777] outline-none transition focus:border-[#293994] focus:ring-1 focus:ring-[#293994]/10"
                   >
                     <option value="" disabled>
@@ -137,10 +172,9 @@ export default function Contact() {
                     <option value="mobile-development">Mobile Development</option>
                     <option value="product-design">Product Design</option>
                     <option value="product-strategy">Product Strategy</option>
-                    <option value="others">others</option>
+                    <option value="others">Others</option>
                   </select>
                 </div>
-
 
                 <div>
                   <label
@@ -149,22 +183,46 @@ export default function Contact() {
                   >
                     Project details
                   </label>
-
                   <textarea
                     id="details"
                     name="details"
                     rows={5}
+                    required
                     placeholder="Tell us about your goals, timeline, and what success looks like"
                     className="w-full resize-none rounded-[6px] border border-[#e5e5e5] bg-[#fafafa] px-2.5 py-2 text-[9px] leading-[1.5] text-[#111] outline-none transition focus:border-[#293994] focus:ring-1 focus:ring-[#293994]/10 placeholder:text-[#9ca3af]"
                   />
                 </div>
 
+                {status.message && (
+                  <div
+                    className={`flex items-center gap-2 rounded-md p-2.5 text-[10px] ${
+                      status.type === "success"
+                        ? "bg-green-50 text-green-700 border border-green-200"
+                        : "bg-red-50 text-red-700 border border-red-200"
+                    }`}
+                  >
+                    {status.type === "success" ? (
+                      <CheckCircle size={14} className="shrink-0 text-green-600" />
+                    ) : (
+                      <AlertCircle size={14} className="shrink-0 text-red-600" />
+                    )}
+                    <span>{status.message}</span>
+                  </div>
+                )}
 
                 <button
                   type="submit"
-                  className="mt-1 rounded-full bg-[#293994] px-4 py-2 text-[9px] font-semibold text-white transition-all hover:bg-[#202d80] hover:shadow-md active:scale-[0.97]"
+                  disabled={isSubmitting}
+                  className="mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-[#293994] px-4 py-2 text-[9px] font-semibold text-white transition-all hover:bg-[#202d80] hover:shadow-md active:scale-[0.97] disabled:opacity-60"
                 >
-                  Send enquiry
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 size={12} className="animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    "Send enquiry"
+                  )}
                 </button>
               </form>
             </div>
@@ -173,23 +231,19 @@ export default function Contact() {
               <div className="space-y-2">
                 {contactDetails.map((item) => {
                   const Icon = item.icon;
-
                   return (
                     <div
                       key={item.title}
                       className="flex min-h-[48px] items-center gap-3 rounded-[6px] bg-[#f8f8f8] px-3 py-2"
                     >
-
                       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[5px] bg-[#293994] text-white">
                         <Icon size={20} strokeWidth={2} />
                       </div>
-
 
                       <div>
                         <p className="text-[15px] font-semibold leading-none text-[#293994]">
                           {item.title}
                         </p>
-
                         <p className="mt-1 text-[11px] leading-tight text-[#222]">
                           {item.content}
                         </p>
@@ -206,8 +260,6 @@ export default function Contact() {
 
       <section className="bg-[#f7f7f7]">
         <div className="mx-auto max-w-5xl px-5 py-14 sm:px-8 md:py-16 lg:px-10">
-
-          {/* Heading */}
           <div className="mb-7 text-center">
             <span className="inline-flex rounded-full bg-[#eef0fb] px-3 py-1 text-[13px] font-semibold text-[#293994] sm:text-[18px]">
               FAQ
@@ -218,10 +270,7 @@ export default function Contact() {
             </h2>
           </div>
 
-
           <div className="mx-auto max-w-4xl">
-
-
             <div className="border-b border-[#dedede] py-4 first:border-t sm:py-5">
               <h3 className="text-[15px] font-bold text-[#080808] sm:text-[18px]">
                 How quickly can we start?
@@ -231,7 +280,6 @@ export default function Contact() {
                 Most projects begin within two to four weeks after scope alignment.
               </p>
             </div>
-
 
             <div className="border-b border-[#dedede] py-4 sm:py-5">
               <h3 className="text-[15px] font-bold text-[#080808] sm:text-[18px]">
@@ -264,11 +312,9 @@ export default function Contact() {
                 product improvements.
               </p>
             </div>
-
           </div>
         </div>
       </section>
-
     </main>
   );
 }
