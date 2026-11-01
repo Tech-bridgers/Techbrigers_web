@@ -137,6 +137,7 @@ export default function Contact() {
                     <option value="mobile-development">Mobile Development</option>
                     <option value="product-design">Product Design</option>
                     <option value="product-strategy">Product Strategy</option>
+                    <option value="others">others</option>
                   </select>
                 </div>
 

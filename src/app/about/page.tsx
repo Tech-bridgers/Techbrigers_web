@@ -7,6 +7,23 @@ export const metadata: Metadata = {
   description:
     "The people behind the products.",
 };
+const teamMembers = [
+    {
+      name: "Adelaja Emmanuel",
+      role: "Product strategy lead",
+      image: "/images/adelaja-emmanuel.jpg", // Ensure path matches your project structure
+    },
+    {
+      name: "Sikiru Selim",
+      role: "Design lead",
+      image: "/images/selim.jpg",
+    },
+    {
+      name: "Adesina Yusuf",
+      role: "Engineering lead",
+      image: "/images/yusluv.jpg",
+    },
+  ];
 
 export default function About() {
   return (
@@ -94,7 +111,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-white">
+      {/* <section className="bg-white">
         <div className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 md:py-16 lg:px-10">
 
 
@@ -140,9 +157,9 @@ export default function About() {
             <div>
               <div className="overflow-hidden rounded-[10px]">
                 <img
-                  src="/sikiru-selim.jpg"
+                  src="/images/selim.jpg"
                   alt="Sikiru Selim"
-                  className="aspect-[1.27/1] w-full object-cover transition-transform duration-500 hover:scale-[1.02]"
+                  className="aspect-[1/1] w-full object-cover transition-transform duration-500 hover:scale-[1.02]"
                 />
               </div>
 
@@ -161,7 +178,7 @@ export default function About() {
             <div>
               <div className="overflow-hidden rounded-[10px]">
                 <img
-                  src="/adesina-yusuf.jpg"
+                  src="/images/yusluv.jpg"
                   alt="Adesina Yusuf"
                   className="aspect-[1.27/1] w-full object-cover transition-transform duration-500 hover:scale-[1.02]"
                 />
@@ -180,7 +197,51 @@ export default function About() {
 
           </div>
         </div>
-      </section>
+      </section> */}
+      <section className="bg-white">
+      <div className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 md:py-16 lg:px-10">
+        {/* Header */}
+        <div className="mb-10 text-center">
+          <span className="inline-flex rounded-full bg-[#eef0fb] px-4 py-1.5 text-sm font-semibold text-[#273186]">
+            Our Team
+          </span>
+
+          <h2 className="mt-3 text-2xl font-bold tracking-tight text-[#080808] sm:text-3xl">
+            A Multidisciplinary Team. One Shared Vision.
+          </h2>
+
+          <p className="mt-2 text-sm text-[#747b8c] sm:text-base">
+            Bringing Design, Strategy, and Technology together to create meaningful digital experiences.
+          </p>
+        </div>
+
+        {/* Team Grid */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {teamMembers.map((member, index) => (
+            <div key={index} className="flex flex-col">
+              {/* ADJUSTMENT 1: Image container is clean with just the image and hover effect */}
+              <div className="overflow-hidden rounded-xl bg-gray-100">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="aspect-[4/3] w-full object-cover transition-transform duration-500 hover:scale-[1.03]"
+                />
+              </div>
+
+              {/* ADJUSTMENT 2: Added 'text-center' and spacing under the image */}
+              <div className="mt-4 text-center">
+                <h3 className="text-base font-bold text-[#080808] sm:text-lg">
+                  {member.name}
+                </h3>
+                <p className="text-xs text-[#273186] sm:text-sm font-medium mt-1">
+                  {member.role}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
 
       <section className="bg-[#f7f7f7]">
         <div className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 md:py-16 lg:px-10">
