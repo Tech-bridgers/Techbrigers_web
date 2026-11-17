@@ -12,7 +12,7 @@ const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Works", href: "/work" },
   { label: "Services", href: "/services" },
-  { label: "About", href: "/#about" },
+  { label: "About", href: "/about" },
 ];
 
 export function SiteHeader() {
@@ -45,7 +45,7 @@ export function SiteHeader() {
         </nav>
 
         <Link
-          href="/#contact"
+          href="/contact"
           className="hidden items-center rounded-full border border-line px-5 py-2.5 text-sm font-semibold text-ink transition-all hover:scale-[1.03] hover:bg-ink hover:text-white active:scale-[0.97] lg:inline-flex"
         >
           Contact us
